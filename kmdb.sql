@@ -131,6 +131,7 @@
 DROP TABLE IF EXISTS movies;
 DROP TABLE IF EXISTS actors;
 DROP TABLE IF EXISTS studios;
+DROP TABLE IF EXISTS studio_actors;
 
 -- CREATE TABLES
 CREATE TABLE movies (
@@ -161,3 +162,4 @@ CREATE TABLE studio_actors (
 studio_id INTEGER,
 actor_id INTEGER
 );
+
