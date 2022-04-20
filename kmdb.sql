@@ -174,9 +174,13 @@ VALUES
 ("Liam Neeson", "Ra's Al Ghul")
 ("Katie Holmes", "Rachel Dawes")
 ("Gary Oldman", "Commissioner Gordon")
+("Christian Bale", "Bruce Wayne")
 ("Heath Ledger", "Joker")
 ("Aaron Eckhart", "Harvey Dent")
+("Michael Caine", "Alfred")
 ("Maggie Gyllenhaal", "Rachel Dawes")
+("Christian Bale", "Bruce Wayne")
+("Gary Oldman", "Commissioner Gordon")
 ("Tom Hardy", "Bane")
 ("Joseph Gordon-Levitt", "John Blake")
 ("Anne Hathaway", "Selina Kyle")
@@ -184,4 +188,14 @@ VALUES
 INSERT INTO studios (studio_name)
 VALUES
 ("Warner Bros.")
+
+.mode columns
+.headers off
+
+.print "Movies"
+.print "======"
+.print ""
+
+SELECT movies.title, movies.year_released, movies.mpaa_rating, studios.studio_name
+FROM movies INNER JOIN studios ON movies.studio_id = studios.id
 
