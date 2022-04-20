@@ -141,7 +141,7 @@ DROP TABLE IF EXISTS studios;
 CREATE TABLE movies (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     title TEXT,
-    year_released TEXT,
+    year_released INTEGER,
     mpaa_rating TEXT,
     studio_id INTEGER,
     actor_id INTEGER
@@ -171,23 +171,23 @@ VALUES
 ("The Dark Knight", "2008", "PG-13",1),
 ("The Dark Knight Rises", "2012", "PG-13",1);
 
-INSERT INTO actors(actor_name, character_name)
+INSERT INTO actors(actor_name, character_name, movie_id)
 VALUES
-("Christian Bale", "Bruce Wayne"),
-("Michael Caine", "Alfred"),
-("Liam Neeson", "Ra's Al Ghul"),
-("Katie Holmes", "Rachel Dawes"),
-("Gary Oldman", "Commissioner Gordon"),
-("Christian Bale", "Bruce Wayne"),
-("Heath Ledger", "Joker"),
-("Aaron Eckhart", "Harvey Dent"),
-("Michael Caine", "Alfred"),
-("Maggie Gyllenhaal", "Rachel Dawes"),
-("Christian Bale", "Bruce Wayne"),
-("Gary Oldman", "Commissioner Gordon"),
-("Tom Hardy", "Bane"),
-("Joseph Gordon-Levitt", "John Blake"),
-("Anne Hathaway", "Selina Kyle");
+("Christian Bale", "Bruce Wayne", 1),
+("Michael Caine", "Alfred", 1),
+("Liam Neeson", "Ra's Al Ghul", 1),
+("Katie Holmes", "Rachel Dawes", 1),
+("Gary Oldman", "Commissioner Gordon", 1),
+("Christian Bale", "Bruce Wayne", 2),
+("Heath Ledger", "Joker", 2),
+("Aaron Eckhart", "Harvey Dent", 2),
+("Michael Caine", "Alfred", 2),
+("Maggie Gyllenhaal", "Rachel Dawes", 2),
+("Christian Bale", "Bruce Wayne", 3),
+("Gary Oldman", "Commissioner Gordon", 3),
+("Tom Hardy", "Bane", 3),
+("Joseph Gordon-Levitt", "John Blake", 3),
+("Anne Hathaway", "Selina Kyle", 3);
 
 INSERT INTO studios(studio_name)
 VALUES
