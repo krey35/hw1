@@ -165,11 +165,11 @@ CREATE TABLE studios (
 --actor_id INTEGER
 --);
 
-INSERT INTO movies(title, year_released, mpaa_rating)
+INSERT INTO movies(title, year_released, mpaa_rating, studio_id)
 VALUES
-("Batman Begins", "2005", "PG-13"),
-("The Dark Knight", "2008", "PG-13"),
-("The Dark Knight Rises", "2012", "PG-13");
+("Batman Begins", "2005", "PG-13",1),
+("The Dark Knight", "2008", "PG-13",1),
+("The Dark Knight Rises", "2012", "PG-13",1);
 
 INSERT INTO actors(actor_name, character_name)
 VALUES
@@ -193,15 +193,20 @@ INSERT INTO studios(studio_name)
 VALUES
 ("Warner Bros.");
 
+.print ""
 .print "Movies"
 .print "======"
 .print ""
 
 SELECT movies.title, movies.year_released, movies.mpaa_rating, studios.studio_name
 FROM movies
-INNER JOIN studios ON movies.studio_id = studios.studio_name;
+INNER JOIN studios ON studios.id = movies.studio_id;
 
 .print ""
 .print "Top Cast"
 .print "========"
 .print ""
+
+SELECT movies.title, actors.actor_name, actors.character_name
+FROM actors
+INNER JOIN movies ON movies.id = actors.movie_id;
