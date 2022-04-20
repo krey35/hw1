@@ -127,7 +127,7 @@
 -- The SQL statement for the cast output
 -- TODO!
 
---MY CODE STARTS HERE--
+--MY CODE STARTS HERE----------------------------------------------
 .mode column
 .headers off
 .width 25 25 25 20
@@ -166,6 +166,7 @@ CREATE TABLE studios (
 --actor_id INTEGER
 --);
 
+-- INSERT DATA
 INSERT INTO movies(title, year_released, mpaa_rating, studio_id)
 VALUES
 ("Batman Begins", "2005", "PG-13",1),
@@ -194,6 +195,7 @@ INSERT INTO studios(studio_name)
 VALUES
 ("Warner Bros.");
 
+-- OUTPUT CODE
 .print ""
 .print "Movies"
 .print "======"
@@ -211,3 +213,5 @@ INNER JOIN studios ON studios.id = movies.studio_id;
 SELECT movies.title, actors.actor_name, actors.character_name
 FROM actors
 INNER JOIN movies ON movies.id = actors.movie_id;
+
+-- End of Code --
