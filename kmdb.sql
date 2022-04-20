@@ -131,7 +131,7 @@
 DROP TABLE IF EXISTS movies;
 DROP TABLE IF EXISTS actors;
 DROP TABLE IF EXISTS studios;
-DROP TABLE IF EXISTS studio_actors;
+DROP TABLE IF EXISTS movie_actors;
 
 -- CREATE TABLES
 CREATE TABLE movies (
@@ -139,7 +139,7 @@ CREATE TABLE movies (
     title TEXT,
     year_released INTEGER,
     mpaa_rating TEXT,
-    studio TEXT,
+    studio_id INTEGER,
     actor_id INTEGER
 );
 
@@ -147,19 +147,41 @@ CREATE TABLE actors (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     actor_name TEXT,
     character_name TEXT,
-    studio_id INTEGER
+    movie_id INTEGER
 );
 
 CREATE TABLE studios (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    studio_name TEXT,
-    movie_id INTEGER,
-    actor_id INTEGER
+    studio_name TEXT
 );
 
-CREATE TABLE studio_actors (
+CREATE TABLE movie_actors (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-studio_id INTEGER,
+movie_id INTEGER,
 actor_id INTEGER
 );
+
+INSERT INTO movies (title, year_released, mpaa_rating)
+VALUES
+("Batman Begins", "2005", "PG-13")
+("The Dark Knight", "2008", "PG-13")
+("The Dark Knight Rises", "2012", "PG-13")
+
+INSERT INTO actors (actor_name, character_name)
+VALUES
+("Christian Bale", "Bruce Wayne")
+("Michael Caine", "Alfred")
+("Liam Neeson", "Ra's Al Ghul")
+("Katie Holmes", "Rachel Dawes")
+("Gary Oldman", "Commissioner Gordon")
+("Heath Ledger", "Joker")
+("Aaron Eckhart", "Harvey Dent")
+("Maggie Gyllenhaal", "Rachel Dawes")
+("Tom Hardy", "Bane")
+("Joseph Gordon-Levitt", "John Blake")
+("Anne Hathaway", "Selina Kyle")
+
+INSERT INTO studios (studio_name)
+VALUES
+("Warner Bros.")
 
