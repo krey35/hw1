@@ -130,6 +130,7 @@
 --MY CODE STARTS HERE--
 .mode column
 .headers off
+.width 25 25 25 20
 
 -- DROP TABLES
 DROP TABLE IF EXISTS movies;
