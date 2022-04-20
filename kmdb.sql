@@ -96,8 +96,8 @@
 -- The Dark Knight Rises  Anne Hathaway         Selina Kyle
 
 -- Turns column mode on but headers off
-.mode column
-.headers off
+--.mode column
+--.headers off
 
 -- Drop existing tables, so you'll start fresh each time this script is run.
 -- TODO!
@@ -110,34 +110,38 @@
 -- TODO!
 
 -- Prints a header for the movies output
-.print "Movies"
-.print "======"
-.print ""
+--.print "Movies"
+--.print "======"
+--.print ""
 
 -- The SQL statement for the movies output
 -- TODO!
 
 -- Prints a header for the cast output
-.print ""
-.print "Top Cast"
-.print "========"
-.print ""
+--.print ""
+--.print "Top Cast"
+--.print "========"
+--.print ""
 
 
 -- The SQL statement for the cast output
 -- TODO!
 
+--MY CODE STARTS HERE--
+.mode column
+.headers off
+
 -- DROP TABLES
 DROP TABLE IF EXISTS movies;
 DROP TABLE IF EXISTS actors;
 DROP TABLE IF EXISTS studios;
-DROP TABLE IF EXISTS movie_actors;
+--DROP TABLE IF EXISTS movie_actors;
 
 -- CREATE TABLES
 CREATE TABLE movies (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     title TEXT,
-    year_released INTEGER,
+    year_released TEXT,
     mpaa_rating TEXT,
     studio_id INTEGER,
     actor_id INTEGER
@@ -155,47 +159,49 @@ CREATE TABLE studios (
     studio_name TEXT
 );
 
-CREATE TABLE movie_actors (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-movie_id INTEGER,
-actor_id INTEGER
-);
+--CREATE TABLE movie_actors (
+ --   id INTEGER PRIMARY KEY AUTOINCREMENT,
+--movie_id INTEGER,
+--actor_id INTEGER
+--);
 
-INSERT INTO movies (title, year_released, mpaa_rating)
+INSERT INTO movies(title, year_released, mpaa_rating)
 VALUES
-("Batman Begins", "2005", "PG-13")
-("The Dark Knight", "2008", "PG-13")
-("The Dark Knight Rises", "2012", "PG-13")
+("Batman Begins", "2005", "PG-13"),
+("The Dark Knight", "2008", "PG-13"),
+("The Dark Knight Rises", "2012", "PG-13");
 
-INSERT INTO actors (actor_name, character_name)
+INSERT INTO actors(actor_name, character_name)
 VALUES
-("Christian Bale", "Bruce Wayne")
-("Michael Caine", "Alfred")
-("Liam Neeson", "Ra's Al Ghul")
-("Katie Holmes", "Rachel Dawes")
-("Gary Oldman", "Commissioner Gordon")
-("Christian Bale", "Bruce Wayne")
-("Heath Ledger", "Joker")
-("Aaron Eckhart", "Harvey Dent")
-("Michael Caine", "Alfred")
-("Maggie Gyllenhaal", "Rachel Dawes")
-("Christian Bale", "Bruce Wayne")
-("Gary Oldman", "Commissioner Gordon")
-("Tom Hardy", "Bane")
-("Joseph Gordon-Levitt", "John Blake")
-("Anne Hathaway", "Selina Kyle")
+("Christian Bale", "Bruce Wayne"),
+("Michael Caine", "Alfred"),
+("Liam Neeson", "Ra's Al Ghul"),
+("Katie Holmes", "Rachel Dawes"),
+("Gary Oldman", "Commissioner Gordon"),
+("Christian Bale", "Bruce Wayne"),
+("Heath Ledger", "Joker"),
+("Aaron Eckhart", "Harvey Dent"),
+("Michael Caine", "Alfred"),
+("Maggie Gyllenhaal", "Rachel Dawes"),
+("Christian Bale", "Bruce Wayne"),
+("Gary Oldman", "Commissioner Gordon"),
+("Tom Hardy", "Bane"),
+("Joseph Gordon-Levitt", "John Blake"),
+("Anne Hathaway", "Selina Kyle");
 
-INSERT INTO studios (studio_name)
+INSERT INTO studios(studio_name)
 VALUES
-("Warner Bros.")
-
-.mode columns
-.headers off
+("Warner Bros.");
 
 .print "Movies"
 .print "======"
 .print ""
 
 SELECT movies.title, movies.year_released, movies.mpaa_rating, studios.studio_name
-FROM movies INNER JOIN studios ON movies.studio_id = studios.id
+FROM movies
+INNER JOIN studios ON movies.studio_id = studios.studio_name;
 
+.print ""
+.print "Top Cast"
+.print "========"
+.print ""
